@@ -6,4 +6,8 @@
     <insert id="insBoard">
         INSERT INTO t_board(title, ctnt) VALUES (#{title}, #{ctnt})
     </insert>
+
+    <select id="selBoardList" resultType="BoardEntity"> <!-- select문은 resultType 필요. -->
+        SELECT iboard, title, hits, rdt FROM t_board ORDER BY iboard DESC
+    </select>
 </mapper>
