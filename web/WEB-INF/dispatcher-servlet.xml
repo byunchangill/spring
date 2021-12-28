@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                           http://www.springframework.org/schema/mvc
+                           https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--
+        자바 파일에 있는 빈(bean)등록 애노테이션을 검색을 하고 찾은 다음에 빈(bean)등록을 해준다.
+        기준이되는 기본 패키지명을 설정.
+    -->
+    <context:component-scan base-package="org.example.springboard" />
+
+    <!-- Enables the Spring MVC @Controller programming model -->
+    <!-- @Controller 활성화 => 주소값 맵핑할 수 있다. -->
+    <mvc:annotation-driven/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+</beans>
