@@ -8,5 +8,8 @@
 </head>
 <body>
     <h1>리스트</h1>
+    <div>
+        <a href="/board/write"><button>글쓰기</button></a>
+    </div>
 </body>
 </html>

@@ -7,4 +7,8 @@ import org.springframework.stereotype.Service;
 public class BoardService {
     @Autowired
     private BoardMapper mapper;
+
+    public int insBoard(BoardEntity entity) {
+        return mapper.insBoard(entity);
+    }
 }

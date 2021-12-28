@@ -3,6 +3,7 @@ package org.example.springboard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -13,6 +14,14 @@ public class BoardController {
 
     @GetMapping("/list") // @RequestMapping("/list") 해도 된다.
     public void list() { // board 파일 만들지 않고 하려면, 리턴 리스트 하면 된다.
+    }
 
+    @GetMapping("/write")
+    public void write() {}
+
+    @PostMapping("/write")
+    public String writeProc(BoardEntity entity) {
+        int result = service.insBoard(entity);
+        return "redirect:/board/list";
     }
 }
