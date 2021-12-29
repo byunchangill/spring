@@ -17,8 +17,12 @@ public class BoardController {
 
     @GetMapping("/list") // @RequestMapping("/list") 해도 된다.
     public void list(Model model) {
-        List<BoardEntity> list = service.selBoardList();
-        model.addAttribute("list", list);
+        model.addAttribute("list", service.selBoardList());
+    }
+
+    @GetMapping("/detail")
+    public void detail(Model model, BoardEntity entity) {
+        model.addAttribute("data", service.selBoard(entity));
     }
 
     @GetMapping("/write")
@@ -27,6 +31,12 @@ public class BoardController {
     @PostMapping("/write")
     public String writeProc(BoardEntity entity) {
         int result = service.insBoard(entity);
+        return "redirect:/board/list";
+    }
+
+    @GetMapping("/del")
+    public String delProc(BoardEntity entity) {
+        int result = service.delBoard(entity);
         return "redirect:/board/list";
     }
 }

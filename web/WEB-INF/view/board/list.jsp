@@ -7,12 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>리스트</title>
-    <style>
-        table, tr, th, td {
-            border-collapse: collapse; border: 1px solid #000;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <h1>리스트</h1>
@@ -34,7 +28,7 @@
                         <th>날짜</th>
                     </tr>
                     <c:forEach items="${requestScope.list}" var="item">
-                        <tr>
+                        <tr class="record" data-iboard="${item.iboard}">
                             <td>${item.iboard}</td>
                             <td><c:out value="${item.title}"/></td>
                             <td>${item.hits}</td>
@@ -45,5 +39,6 @@
             </c:otherwise>
         </c:choose>
     </div>
+    <script src="/res/js/board/list.js"></script>
 </body>
 </html>

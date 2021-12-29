@@ -12,11 +12,11 @@
     </bean>
 
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-        <constructor-arg ref="hikariConfig"/>
+        <constructor-arg ref="hikariConfig"/> <!-- constructor-arg 생성자 통해서 객체화 작업  -->
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="dataSource" ref="dataSource"/> <!-- setter 통해서 객체화 작업  -->
         <property name="mapperLocations" value="classpath:/mappers/*.xml"/>
         <property name="typeAliasesPackage" value="org.example.springboard"/>
     </bean>

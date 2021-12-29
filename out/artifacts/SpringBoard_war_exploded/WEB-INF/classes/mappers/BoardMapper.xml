@@ -10,4 +10,12 @@
     <select id="selBoardList" resultType="BoardEntity"> <!-- select문은 resultType 필요. -->
         SELECT iboard, title, hits, rdt FROM t_board ORDER BY iboard DESC
     </select>
+
+    <select id="selBoard" resultType="BoardEntity">
+        SELECT * FROM t_board WHERE iboard = ${iboard}
+    </select>
+
+    <delete id="delBoard">
+        DELETE FROM t_board WHERE iboard = ${iboard}
+    </delete>
 </mapper>

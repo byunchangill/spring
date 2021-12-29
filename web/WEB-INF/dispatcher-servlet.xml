@@ -20,6 +20,8 @@
     <!-- @Controller 활성화 => 주소값 맵핑할 수 있다. -->
     <mvc:annotation-driven/>
 
+    <mvc:resources mapping="/res/**" location="/res/"/>
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"/>
         <property name="suffix" value=".jsp" />
