@@ -10,8 +10,9 @@
 </head>
 <body>
     <div id="btnContainer" data-iboard="${requestScope.data.iboard}">
-        <button>수정</button>
+        <button id="btnUpdate">수정</button>
         <button id="btnDel">삭제</button>
+        <a href="/board/list"><button>리스트</button></a>
     </div>
 
     <div>번호 : ${requestScope.data.iboard}</div>

@@ -22,7 +22,18 @@ public class BoardService {
         return mapper.selBoard(entity);
     }
 
+    // 조회수 올리기.
+    public void upBoardHitsUp(BoardEntity entity) {
+        entity.setHits(1);
+//        mapper.upBoard(entity);
+        upBoard(entity);
+    }
+
     public int delBoard(BoardEntity entity) {
         return mapper.delBoard(entity);
+    }
+
+    public int upBoard(BoardEntity entity) {
+        return mapper.upBoard(entity);
     }
 }

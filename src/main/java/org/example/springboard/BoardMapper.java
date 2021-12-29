@@ -11,5 +11,6 @@ public interface BoardMapper {     // interface 는 자동으로 public, abstrac
     List<BoardEntity> selBoardList(); // 리스트 화면
     BoardEntity selBoard(BoardEntity entity); // 디테일 화면
     int delBoard(BoardEntity entity); // 게시글 삭제.
+    int upBoard(BoardEntity entity); // 게시글 수정.
 
 }

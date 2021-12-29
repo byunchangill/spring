@@ -22,6 +22,7 @@ public class BoardController {
 
     @GetMapping("/detail")
     public void detail(Model model, BoardEntity entity) {
+        service.upBoardHitsUp(entity);
         model.addAttribute("data", service.selBoard(entity));
     }
 
@@ -38,5 +39,16 @@ public class BoardController {
     public String delProc(BoardEntity entity) {
         int result = service.delBoard(entity);
         return "redirect:/board/list";
+    }
+
+    @GetMapping("/update")
+    public void update(Model model, BoardEntity entity) {
+        model.addAttribute("data", service.selBoard(entity));
+    }
+
+    @PostMapping("/update")
+    public String updateProc(BoardEntity entity) {
+        int result = service.upBoard(entity);
+        return "redirect:/board/detail?iboard=" + entity.getIboard();
     }
 }
