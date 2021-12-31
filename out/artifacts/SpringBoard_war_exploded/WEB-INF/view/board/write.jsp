@@ -8,9 +8,10 @@
 </head>
 <body>
     <h1>글쓰기</h1>
+    <div>${requestScope.msg}</div>
     <form action="/board/write" method="post">
-        <div><input type="text" name="title" placeholder="제목"></div>
-        <div><textarea name="ctnt" placeholder="내용"></textarea></div>
+        <div><input type="text" name="title" placeholder="제목" value="${requestScope.data.title}"></div>
+        <div><textarea name="ctnt" placeholder="내용">${requestScope.data.ctnt}</textarea></div>
         <div>
             <input type="submit" value="저장">
         </div>

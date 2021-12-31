@@ -2,29 +2,34 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.example.springboard.BoardMapper">
+<mapper namespace="org.example.springboard.board.BoardMapper">
     <insert id="insBoard">
-        INSERT INTO t_board(title, ctnt) VALUES (#{title}, #{ctnt})
+        INSERT INTO t_board(title, ctnt, writer) VALUES (#{title}, #{ctnt}, #{writer})
     </insert>
 
-    <select id="selBoardList" resultType="BoardEntity"> <!-- select문은 resultType 필요. -->
-        SELECT iboard, title, hits, rdt FROM t_board ORDER BY iboard DESC
+    <select id="selBoardList" resultType="BoardVO"> <!-- select문은 resultType 필요. -->
+        SELECT A.iboard, A.title, A.writer, A.hit, A.rdt, B.nm as writerNm, B.profileImg
+        FROM t_board A INNER JOIN t_user B
+        ON A.writer = B.iuser
+        ORDER BY A.iboard DESC
     </select>
 
-    <select id="selBoard" resultType="BoardEntity">
-        SELECT * FROM t_board WHERE iboard = ${iboard}
+    <select id="selBoard" resultType="BoardVO">
+        SELECT A.iboard, A.title, A.ctnt, A.writer, A.hit, A.rdt, A.mdt, B.nm as writerNm, B.profileImg
+        FROM t_board A INNER JOIN t_user B
+        ON A.writer = B.iuser WHERE iboard = ${iboard}
     </select>
 
     <delete id="delBoard">
-        DELETE FROM t_board WHERE iboard = ${iboard}
+        DELETE FROM t_board WHERE iboard = ${iboard} AND writer = ${writer}
     </delete>
 
     <update id="upBoard">
         UPDATE t_board
         SET
         <choose>
-            <when test=" hits == 1 ">
-                hits = hits + 1
+            <when test=" hit == 1 ">
+                hit = hit + 1
             </when>
             <otherwise>
                 <if test=" title != null and title != '' ">
@@ -37,5 +42,8 @@
             </otherwise>
         </choose>
         WHERE iboard = ${iboard}
+        <if test=" hit != 1">
+            AND writer = ${writer}
+        </if>
     </update>
 </mapper>

@@ -9,5 +9,4 @@ btnDelElem.addEventListener('click', function () {
 var btnUpdateElem = btnContainerELem.querySelector('#btnUpdate');
 btnUpdateElem.addEventListener('click', function () {
     location.href = '/board/update?iboard=' + btnContainerELem.dataset.iboard;
-
 });

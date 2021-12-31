@@ -10,6 +10,7 @@
 </head>
 <body>
     <h1>수정</h1>
+    <div>${requestScope.msg}</div>
     <form action="/board/update" method="post">
         <input type="hidden" name="iboard" value="${requestScope.data.iboard}">
         <div><input type="text" name="title" placeholder="제목" value="<c:out value='${requestScope.data.title}'/>"></div>

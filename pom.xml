@@ -75,5 +75,17 @@
             <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version>
+        </dependency>
     </dependencies>
 </project>
