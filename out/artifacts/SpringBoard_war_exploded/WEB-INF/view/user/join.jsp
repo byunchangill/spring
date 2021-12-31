@@ -15,7 +15,8 @@
         <div><input type="password" name="upw" placeholder="비밀번호" required></div>
         <div><input type="text" name="nm" placeholder="이름" required></div>
         <div>
-            성별 : <label>여성 <input type="radio" value="2" name="gender"></label>
+            성별 :
+            <label>여성 <input type="radio" value="2" name="gender"></label>
             <label>남성 <input type="radio" value="1" name="gender" checked></label>
         </div>
         <div>

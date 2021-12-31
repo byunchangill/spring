@@ -16,8 +16,12 @@ public class UserService {
     private HttpSession hs;
 
     public int join(UserEntity entity) {
-        entity.setUpw(BCrypt.hashpw(entity.getUpw(), BCrypt.gensalt()));
-        return mapper.join(entity);
+        String plainPw = entity.getUpw();
+        String hashPw = BCrypt.hashpw(entity.getUpw(), BCrypt.gensalt());
+        entity.setUpw(hashPw);
+        int result = mapper.join(entity);
+        entity.setUpw(plainPw);
+        return result;
     }
 
     public int login(UserEntity entity) {

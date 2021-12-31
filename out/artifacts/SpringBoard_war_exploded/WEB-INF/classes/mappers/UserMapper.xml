@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.springboard.user.UserMapper">
     <insert id="join">
-        INSERT INTO t_user(uid, upw, nm, gender) VALUES (#{uid}, #{upw}, #{nm}, #{gender})
+        INSERT INTO t_user(uid, upw, nm, gender) VALUES (#{uid}, #{upw}, #{nm}, ${gender})
     </insert>
 
     <select id="selUser" resultType="UserEntity">

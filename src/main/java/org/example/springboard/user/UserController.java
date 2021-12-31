@@ -21,10 +21,18 @@ public class UserController {
     public void join() {}
 
     @PostMapping("/join")
-    public String joinProc(UserEntity entity) {
+    public String joinProc(UserEntity entity, RedirectAttributes reAttr) {
         int result = service.join(entity);
-
-        return "redirect:/user/login";
+        switch (result) {
+            case 1:
+                int loginResult = service.login(entity);
+                if(loginResult == 1) {
+                    return "redirect:/board/list";
+                }
+                return "redirect:/user/login";
+        }
+        reAttr.addFlashAttribute("mag", "회원가입에 실패하였습니다.");
+        return "redirect:/user/join";
     }
 
     @GetMapping("/login")
