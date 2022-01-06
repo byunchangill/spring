@@ -67,6 +67,4 @@ public class UserController {
         return "redirect:" + referer;
 //        return "redirect:/board/list";
     }
-
-
 }

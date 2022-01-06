@@ -16,7 +16,7 @@
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/> <!-- setter 통해서 객체화 작업  -->
+        <property name="dataSource" ref="dataSource"/> <!-- setter 메소드 호출  -->
         <property name="mapperLocations" value="classpath:/mappers/*.xml"/>
         <property name="typeAliasesPackage" value="org.example.springboard"/>
     </bean>
